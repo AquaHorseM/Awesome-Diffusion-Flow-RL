@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+
+# Internal research and build artifacts
+AGENTS.md
+CLAUDE.md
+PROGRESS.md
+results_summary.md
+worker-progress.json
+editorial_review.md
+integration_report.md
+reading_notes.md
+source_coverage.md
+taxonomy.md
+inputs/
+evidence/
+scripts/
+docs/
+*.csv
+*.json
