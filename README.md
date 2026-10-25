@@ -324,6 +324,11 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 - **[DRAKES — Fine-Tuning Discrete Diffusion Models via Reward Optimization with Applications to DNA and Protein Design](https://arxiv.org/abs/2410.13643)** (2024) · [Code](https://github.com/ChenyuWang-Monica/DRAKES) · ![Subdomain: Language & Reasoning · Scientific Discovery](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning%20%C2%B7%20Scientific%20Discovery-ebe3e3.svg?style=flat&labelColor=e8ecef)<br>
   Backpropagates through relaxed discrete denoising for reward-driven biological sequence design.
 
+<a id="paper-arxiv-2610-28858"></a>
+
+- **[DualHeads: Reward-tilted few-step diffusion made simple](https://arxiv.org/abs/2610.28858)** (2026) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  Post-trains a few-step generator from black-box rewards by ascending the logits of a reward head and a reference-vs-generated head on a frozen backbone; with optimal heads this is KL-regularized reward maximization.
+
 <a id="reward-weighted-and-forward-matching"></a>
 
 <a id="reward-weighted--forward-matching"></a>
@@ -356,6 +361,11 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 
 - **[Tilt Matching for Scalable Sampling and Fine-Tuning](https://arxiv.org/abs/2512.21829)** (2025) · ![Subdomain: Images & Video · Scientific Discovery](https://img.shields.io/badge/Subdomain-Images%20%26%20Video%20%C2%B7%20Scientific%20Discovery-e6e7e4.svg?style=flat&labelColor=e8ecef)<br>
   Uses incremental reward tilting and covariance-based regression to improve generative distributions.
+
+<a id="paper-arxiv-2603-14128"></a>
+
+- **[CRD — Diffusion Reinforcement Learning via Centered Reward Distillation](https://arxiv.org/abs/2603.14128)** (2026) · [Code](https://github.com/yuanzhi-zhu/CRD) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  Derives a forward-process reward-matching objective from KL-regularized reward maximization, where the intractable normalizer cancels under within-prompt reward centering.
 
 <a id="posterior-matching-stochastic-control-and-adjoints"></a>
 
