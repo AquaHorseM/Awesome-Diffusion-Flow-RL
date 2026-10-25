@@ -319,6 +319,11 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 - ⭐ **[DRaFT — Directly Fine-Tuning Diffusion Models on Differentiable Rewards](https://arxiv.org/abs/2309.17400)** (2023) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Differentiates a reward through full or truncated denoising trajectories.
 
+<a id="paper-arxiv-2509-06942"></a>
+
+- **[Direct-Align / SRPO — Directly Aligning the Full Diffusion Trajectory with Fine-Grained Human Preference](https://arxiv.org/abs/2509.06942)** (2025) · [Code](https://github.com/Tencent-Hunyuan/SRPO) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  Fine-tunes the generator across diffusion timesteps using single-step image reconstruction and fine-grained, text-conditioned relative preference rewards.
+
 <a id="paper-arxiv-2410-13643"></a>
 
 - **[DRAKES — Fine-Tuning Discrete Diffusion Models via Reward Optimization with Applications to DNA and Protein Design](https://arxiv.org/abs/2410.13643)** (2024) · [Code](https://github.com/ChenyuWang-Monica/DRAKES) · ![Subdomain: Language & Reasoning · Scientific Discovery](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning%20%C2%B7%20Scientific%20Discovery-ebe3e3.svg?style=flat&labelColor=e8ecef)<br>
@@ -688,10 +693,20 @@ Audio-specific generation architectures, preference signals, and reward decompos
 - **[PrismAudio: Decomposed Chain-of-Thoughts and Multi-dimensional Rewards for Video-to-Audio Generation](https://arxiv.org/abs/2511.18833)** (2025) · [Project](https://PrismAudio-Project.github.io)<br>
   Aligns semantic, temporal, aesthetic, and spatial reasoning with corresponding audio rewards, using random-window ODE-SDE Fast-GRPO.
 
+<a id="paper-arxiv-2504-02407"></a>
+
+- **[F5R-TTS: Improving Flow-Matching based Text-to-Speech with Group Relative Policy Optimization](https://arxiv.org/abs/2504.02407)** (2025) · [Code](https://github.com/FrontierLabs/F5R-TTS) · [Project](https://frontierlabs.github.io/F5R/)<br>
+  Reformulates flow-matching TTS outputs as Gaussian policies and applies GRPO with ASR and speaker-similarity rewards to improve intelligibility and voice cloning.
+
 <a id="paper-arxiv-2412-21037"></a>
 
 - **[TangoFlux / CRPO — TangoFlux: Super Fast and Faithful Text to Audio Generation with Flow Matching and Clap-Ranked Preference Optimization](https://arxiv.org/abs/2412.21037)** (2024) · [Code](https://github.com/declare-lab/TangoFlux) · [Project](https://tangoflux.github.io/)<br>
   Uses iterative CLAP-ranked preferences to align a rectified-flow text-to-audio generator.
+
+<a id="paper-arxiv-2404-09956"></a>
+
+- **[Tango 2: Aligning Diffusion-based Text-to-Audio Generations through Direct Preference Optimization](https://arxiv.org/abs/2404.09956)** (2024) · [Code](https://github.com/declare-lab/tango/tree/master/tango2) · [Project](https://tango2-web.github.io/)<br>
+  Fine-tunes a text-to-audio diffusion model with Diffusion-DPO on synthetic Audio-Alpaca preferences targeting sound-event presence and temporal ordering.
 
 ## Tech Reports
 
@@ -716,6 +731,11 @@ Model and system reports describing reward-driven training recipes for diffusion
 
 - 🚀 **[Seedance 1.0: Exploring the Boundaries of Video Generation Models](https://arxiv.org/abs/2506.09113)** (2025) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Directly maximizes multidimensional video rewards and extends reward post-training to the accelerated diffusion refiner.
+
+<a id="paper-arxiv-2609-08936"></a>
+
+- **[AuK — AuK Technical Report: An Open-Source Foundational Model for Speech Generation and Editing](https://arxiv.org/abs/2609.08936)** (2026) · [Code](https://github.com/Tencent-Hunyuan/AuK) · [Project](https://auk-project.github.io/) · ![Subdomain: Audio](https://img.shields.io/badge/Subdomain-Audio-efdee6.svg?style=flat&labelColor=e8ecef)<br>
+  Aligns a rectified-flow speech generator with human preference optimization for editing and reward-based RL for speech synthesis, then distills it for four-step inference.
 
 <a id="paper-arxiv-2608-00146"></a>
 
