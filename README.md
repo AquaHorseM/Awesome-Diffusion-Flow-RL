@@ -477,6 +477,11 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 - 🚀 **[DanceGRPO: Unleashing GRPO on Visual Generation](https://arxiv.org/abs/2505.07818)** (2025) · [Code](https://github.com/XueZeyue/DanceGRPO) · [Project](https://dancegrpo.github.io/)<br>
   Applies a common group-relative reward recipe across image and video generators.
 
+<a id="paper-arxiv-2604-23380"></a>
+
+- **[V-GRPO: Online Reinforcement Learning for Denoising Generative Models Is Easier than You Think](https://arxiv.org/abs/2604.23380)** (2026) · [Code](https://github.com/tang-bd/v-grpo)<br>
+  Combines GRPO with variance-reduced ELBO surrogates and controlled gradient updates for text-to-image reward optimization.
+
 <a id="paper-arxiv-2501-13918"></a>
 
 - **[VideoAlign / VideoReward — Improving Video Generation with Human Feedback](https://arxiv.org/abs/2501.13918)** (2025) · [Code](https://github.com/KlingAIResearch/VideoAlign) · [Project](https://gongyeliu.github.io/videoalign/)<br>
