@@ -6,7 +6,7 @@ A curated list of papers and tools for **reinforcement learning and reward optim
 
 We focus on **algorithms**: how rewards improve a generative policy, how different updates connect, and where to start implementing them. Each paper has a concise, one-sentence summary.
 
-*Last updated: Oct. 24, 2026*
+*Last updated: Oct. 28, 2026*
 
 ## Overview
 
@@ -15,6 +15,8 @@ We focus on **algorithms**: how rewards improve a generative policy, how differe
 This repository offers an algorithm-focused map of reward-driven learning for diffusion and flow models. It covers policy gradients, value-based methods, preference optimization, reward gradients, reward-weighted matching, stochastic control, world-model RL, and closely related inference or distillation methods when they help explain the field.
 
 Method Family and Domain / Task are the two main ways to browse the collection. Rather than cataloging every relevant paper, we curate work that we believe matters to the field and can offer useful ideas or new perspectives to readers exploring it.
+
+We organize papers by their main contribution: Core Methods emphasizes broadly applicable algorithmic ideas, while domain-specific sections focus on methods shaped by particular applications or model families. The boundaries are inevitably fuzzy, and placement merely reflects our reading of each paper, which is not an indication of its importance or potential applicability elsewhere.
 
 > [!NOTE]
 > Paper selection and highlights only reflect the maintainer's personal preferences. All short summaries are LLM-generated and human-verified.
@@ -138,7 +140,7 @@ Find a learning rule, then follow its representative papers across tasks. A diff
 | [Matching-based policy improvement](#reward-weighted--matching-based-policy-improvement) | Fit reward-weighted or reward-corrected denoising targets. | [DiffusionNFT](#paper-arxiv-2509-16117), [RAM](#paper-arxiv-2605-10759), [wd1 / wd1++](#paper-arxiv-2507-08838) |
 | [Other optimization methods](#other-optimization-methods) | Approaches including posterior matching, stochastic control, and adjoint methods. | [Adjoint Matching](#paper-arxiv-2409-08861), [RTB](#paper-arxiv-2405-20971), [DDPP](#paper-arxiv-2410-08134) |
 | [Inference & steering](#inference--steering) | Guide sampling while keeping generator weights fixed. | [Diffuser](#paper-arxiv-2205-09991), [SVDD](#paper-arxiv-2408-08252), [TIPS](#paper-arxiv-2610-22099) |
-| [On-policy distillation](#distillation) | Match a teacher at states visited by the student. | [DiffusionOPD](#paper-arxiv-2605-15055), [dOPSD](#paper-arxiv-2607-04428), [VIDD](#paper-arxiv-2507-00445) |
+| [Distillation / teacher matching](#distillation) | Distill teacher predictions with student rollouts or value-informed roll-ins. | [DiffusionOPD](#paper-arxiv-2605-15055), [dOPSD](#paper-arxiv-2607-04428), [VIDD](#paper-arxiv-2507-00445) |
 
 <a id="cross-domain-methods"></a>
 
@@ -148,7 +150,7 @@ Find a learning rule, then follow its representative papers across tasks. A diff
 
 ## Core Methods
 
-Core learning algorithms organized by how they obtain a policy-improvement update. Placement here highlights the paper's algorithmic contribution rather than claiming universal applicability. **Subdomain** badges record where the original paper actually develops or evaluates the method; combined values share one badge.
+Broadly applicable algorithmic ideas organized by how they obtain a policy-improvement update. **Subdomain** badges record where the original paper actually develops or evaluates the method; combined values share one badge.
 
 <a id="core-rl-denoising-and-stochastic-flow-policies"></a>
 
@@ -160,11 +162,6 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 
 ### Transition-Likelihood Policy Gradients
 
-<a id="paper-arxiv-2502-01384"></a>
-
-- ⭐ **[SEPO — Fine-Tuning Discrete Diffusion Models with Policy Gradient Methods](https://arxiv.org/abs/2502.01384)** (2025) · [Code (partial release)](https://github.com/ozekri/SEPO) · ![Subdomain: Language & Reasoning · Scientific Discovery](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning%20%C2%B7%20Scientific%20Discovery-ebe3e3.svg?style=flat&labelColor=e8ecef)<br>
-  Derives policy gradients through concrete scores for discrete diffusion models.
-
 <a id="paper-arxiv-2409-00588"></a>
 
 - ⭐ **[DPPO — Diffusion Policy Policy Optimization](https://arxiv.org/abs/2409.00588)** (2024) · [Code](https://github.com/irom-princeton/dppo) · [Project](https://diffusion-ppo.github.io/) · *online* · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
@@ -174,16 +171,6 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 
 - ⭐ **[DDPO — Training Diffusion Models with Reinforcement Learning](https://arxiv.org/abs/2305.13301)** (2023) · [Code](https://github.com/jannerm/ddpo) · [Project](https://rl-diffusion.github.io/) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Treats denoising transitions as policy actions and optimizes terminal rewards with score-function and PPO-style updates.
-
-<a id="paper-arxiv-2605-03065"></a>
-
-- 🚀 **[OGPO — Sample Efficient Full-Finetuning of Generative Control Policies](https://arxiv.org/abs/2605.03065)** (2026) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
-  Uses replay-trained critics as terminal rewards for PPO-style improvement through the full generative policy.
-
-<a id="paper-arxiv-2505-22094"></a>
-
-- 🚀 **[ReinFlow: Fine-tuning Flow Matching Policy with Online Reinforcement Learning](https://arxiv.org/abs/2505.22094)** (2025) · [Code](https://github.com/ReinFlow/ReinFlow) · [Project](https://reinflow.github.io/) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
-  Injects learned stochasticity into a flow policy to support online policy-gradient fine-tuning for control.
 
 <a id="paper-arxiv-2505-05470"></a>
 
@@ -195,15 +182,7 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 - **[Flow-DPPO: Divergence Proximal Policy Optimization for Flow Matching Models](https://arxiv.org/abs/2606.11025)** (2026) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Uses a Gaussian-transition divergence mask to regulate updates instead of relying solely on sampled ratio clipping.
 
-<a id="paper-arxiv-2606-06967"></a>
-
-- **[GenPO++: Generative Policy Optimization with Jacobian-free Likelihood Ratios](https://arxiv.org/abs/2606.06967)** (2026) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
-  Uses a reversible history-state solver for Jacobian-free likelihood-ratio updates.
-
-<a id="paper-arxiv-2305-16381"></a>
-
-- **[DPOK: Reinforcement Learning for Fine-tuning Text-to-Image Diffusion Models](https://arxiv.org/abs/2305.16381)** (2023) · [Code](https://github.com/google-research/google-research/tree/master/dpok) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
-  Combines image reward policy gradients with reference-distribution regularization.
+**See also:** [SEPO](#paper-arxiv-2502-01384) — discrete policy gradients; [ReinFlow](#paper-arxiv-2505-22094) and [OGPO](#paper-arxiv-2605-03065) — control policy gradients; [DPOK](#paper-arxiv-2305-16381) — image reward fine-tuning.
 
 <a id="endpoint--elbo-policy-optimization"></a>
 
@@ -242,30 +221,7 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 - 🚀 **[Rethinking Diffusion RL / EPG — Rethinking the Design Space of Reinforcement Learning for Diffusion Models: On the Importance of Likelihood Estimation Beyond Loss Design](https://arxiv.org/abs/2602.04663)** (2026) · [Code](https://github.com/jaemoo-choi/rethinking-diffusion-rl) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Separates endpoint-likelihood estimator design from the outer policy-gradient objective.
 
-<a id="paper-arxiv-2602-02481"></a>
-
-- 🚀 **[FPO++ — Flow Policy Gradients for Robot Control](https://arxiv.org/abs/2602.02481)** (2026) · [Code](https://github.com/amazon-far/fpo-control) · [Project](https://hongsukchoi.github.io/fpo-control) · *online* · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
-  Refines flow-policy optimization for robot control with per-noise-sample proxies and asymmetric trust regions.
-
-<a id="paper-arxiv-2510-09541"></a>
-
-- 🚀 **[SPG: Sandwiched Policy Gradient for Masked Diffusion Language Models](https://arxiv.org/abs/2510.09541)** (2025) · [Code](https://github.com/facebookresearch/SPG) · [Project](https://chenyuwang-monica.github.io/spg/) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
-  Uses upper and lower likelihood bounds to stabilize diffusion-language policy updates.
-
-<a id="paper-arxiv-2606-05468"></a>
-
-- **[FlowPRO / RPRO — FlowPRO: Reward-Free Reinforced Fine-Tuning of Flow-Matching VLAs via Proximalized Preference Optimization](https://arxiv.org/abs/2606.05468)** (2026) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
-  Anchors flow-VLA implicit rewards with proximal preference optimization on paired failure/correction trajectories, as used in [HyVLA-0.5](#paper-arxiv-2606-14409).
-
-<a id="paper-arxiv-2603-06743"></a>
-
-- **[StableDRL — Stabilizing Reinforcement Learning for Diffusion Language Models](https://arxiv.org/abs/2603.06743)** (2026) · [Code](https://github.com/JianyuanZhong/StableDRL) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
-  Uses unconditional clipping and self-normalization to stabilize GRPO updates from estimated diffusion-language likelihood ratios.
-
-<a id="paper-arxiv-2505-19223"></a>
-
-- **[LLaDA 1.5 / VRPO — LLaDA 1.5: Variance-Reduced Preference Optimization for Large Language Diffusion Models](https://arxiv.org/abs/2505.19223)** (2025) · [Code](https://github.com/ML-GSAI/LLaDA-1.5) · [Project](https://ml-gsai.github.io/LLaDA-1.5-Demo/) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
-  Controls variance in variational preference alignment for a masked language model.
+**See also:** [SPG](#paper-arxiv-2510-09541) and [StableDRL](#paper-arxiv-2603-06743) — language-model surrogates; [FPO++](#paper-arxiv-2602-02481) — control-policy surrogates.
 
 <a id="core-rl-actorcritic--q--advantage"></a>
 
@@ -319,10 +275,7 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 - ⭐ **[DRaFT — Directly Fine-Tuning Diffusion Models on Differentiable Rewards](https://arxiv.org/abs/2309.17400)** (2023) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Differentiates a reward through full or truncated denoising trajectories.
 
-<a id="paper-arxiv-2410-13643"></a>
-
-- **[DRAKES — Fine-Tuning Discrete Diffusion Models via Reward Optimization with Applications to DNA and Protein Design](https://arxiv.org/abs/2410.13643)** (2024) · [Code](https://github.com/ChenyuWang-Monica/DRAKES) · ![Subdomain: Language & Reasoning · Scientific Discovery](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning%20%C2%B7%20Scientific%20Discovery-ebe3e3.svg?style=flat&labelColor=e8ecef)<br>
-  Backpropagates through relaxed discrete denoising for reward-driven biological sequence design.
+**See also:** [DRAKES](#paper-arxiv-2410-13643) — relaxed discrete reward gradients for biological sequences.
 
 <a id="reward-weighted-and-forward-matching"></a>
 
@@ -347,15 +300,12 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 - 🚀 **[DiffusionNFT: Online Diffusion Reinforcement with Forward Process](https://arxiv.org/abs/2509.16117)** (2025) · [Code](https://github.com/NVlabs/DiffusionNFT) · [Project](https://research.nvidia.com/labs/cosmos-lab/diffusionnft/) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Uses signed, advantage-guided forward-process fitting with a moving reference, avoiding retained reverse trajectories.
 
-<a id="paper-arxiv-2507-08838"></a>
-
-- 🚀 **[wd1 / wd1++ — wd1: Weighted Policy Optimization for Reasoning in Diffusion Language Models](https://arxiv.org/abs/2507.08838)** (2025) · [Code](https://github.com/xiaohangt/wd1) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
-  Uses weighted log-likelihood and negative-sample unlearning rather than a PPO ratio.
-
 <a id="paper-arxiv-2512-21829"></a>
 
 - **[Tilt Matching for Scalable Sampling and Fine-Tuning](https://arxiv.org/abs/2512.21829)** (2025) · ![Subdomain: Images & Video · Scientific Discovery](https://img.shields.io/badge/Subdomain-Images%20%26%20Video%20%C2%B7%20Scientific%20Discovery-e6e7e4.svg?style=flat&labelColor=e8ecef)<br>
   Uses incremental reward tilting and covariance-based regression to improve generative distributions.
+
+**See also:** [wd1 / wd1++](#paper-arxiv-2507-08838) — weighted likelihood and unlearning for language reasoning.
 
 <a id="posterior-matching-stochastic-control-and-adjoints"></a>
 
@@ -370,25 +320,17 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 - ⭐ **[Adjoint Matching: Fine-tuning Flow and Diffusion Generative Models with Memoryless Stochastic Optimal Control](https://arxiv.org/abs/2409.08861)** (2024) · [Code](https://github.com/microsoft/soc-fine-tuning-sd) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Turns stochastic-control fine-tuning into lean-adjoint regression with a memoryless noise construction.
 
-<a id="paper-arxiv-2602-07132"></a>
-
-- 🚀 **[Discrete Adjoint Matching](https://arxiv.org/abs/2602.07132)** (2026) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
-  Extends adjoint-style reward optimization to discrete CTMC generators through multiplicative rate corrections.
-
 <a id="paper-arxiv-2608-14430"></a>
 
 - **[Designing Reinforcement Learning for Diffusion Models: A Unified Path-Space View](https://arxiv.org/abs/2608.14430)** (2026) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Relates reward optimization estimators through path importance sampling and value-gradient corrections.
 
-<a id="paper-arxiv-2410-08134"></a>
-
-- **[DDPP — Steering Masked Discrete Diffusion Models via Discrete Denoising Posterior Prediction](https://arxiv.org/abs/2410.08134)** (2024) · ![Subdomain: Images & Video · Language & Reasoning · Scientific Discovery](https://img.shields.io/badge/Subdomain-Images%20%26%20Video%20%C2%B7%20Language%20%26%20Reasoning%20%C2%B7%20Scientific%20Discovery-e6e5e8.svg?style=flat&labelColor=e8ecef)<br>
-  Learns reward-tilted discrete denoising posteriors with endpoint-prediction objectives.
-
 <a id="paper-arxiv-2405-20971"></a>
 
 - **[RTB — Amortizing intractable inference in diffusion models for vision, language, and control](https://arxiv.org/abs/2405.20971)** (2024) · [Code](https://github.com/GFNOrg/diffusion-finetuning) · ![Subdomain: Images & Video · Language & Reasoning · Robotics & Control](https://img.shields.io/badge/Subdomain-Images%20%26%20Video%20%C2%B7%20Language%20%26%20Reasoning%20%C2%B7%20Robotics%20%26%20Control-e1e6e9.svg?style=flat&labelColor=e8ecef)<br>
   Trains reward-tilted samplers through relative trajectory-balance residuals and a learned normalizer.
+
+**See also:** [Discrete Adjoint Matching](#paper-arxiv-2602-07132) — discrete CTMC adjoints; [DDPP](#paper-arxiv-2410-08134) — discrete posterior matching.
 
 <a id="adjacent-inference-control"></a>
 
@@ -397,16 +339,6 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 Guide a fixed generator with values, resampling, or a learned controller. A steering policy can learn from reward while the base generator stays frozen.
 
 <a id="guidance-selection-and-learned-steering"></a>
-
-<a id="paper-arxiv-2205-09991"></a>
-
-- ⭐ **[Diffuser — Planning with Diffusion for Flexible Behavior Synthesis](https://arxiv.org/abs/2205.09991)** (2022) · [Code](https://github.com/jannerm/diffuser) · [Project](https://diffusion-planning.github.io/)<br>
-  Plans trajectories by denoising with reward and value guidance at inference.
-
-<a id="paper-arxiv-2506-15799"></a>
-
-- 🚀 **[DSRL — Steering Your Diffusion Policy with Latent Space Reinforcement Learning](https://arxiv.org/abs/2506.15799)** (2025) · [Code](https://github.com/ajwagen/dsrl) · [Project](https://diffusion-steering.github.io/)<br>
-  Learns a latent/noise steering policy around a frozen diffusion or flow action generator.
 
 <a id="paper-arxiv-2501-06848"></a>
 
@@ -418,7 +350,7 @@ Guide a fixed generator with values, resampling, or a learned controller. A stee
 - **[SVDD — Derivative-Free Guidance in Continuous and Discrete Diffusion Models with Soft Value-Based Decoding](https://arxiv.org/abs/2408.08252)** (2024) · [Code](https://github.com/masa-ue/SVDD)<br>
   Selects denoising candidates using soft future values, without reward-updating the generator.
 
-**See also:** [TIPS](#paper-arxiv-2610-22099) — RL-trained DLM visibility controller; [IDQL](#paper-arxiv-2304-10573) — value-based implicit action extraction.
+**See also:** [Diffuser](#paper-arxiv-2205-09991) — trajectory planning; [DSRL](#paper-arxiv-2506-15799) — latent steering; [TIPS](#paper-arxiv-2610-22099) — RL-trained DLM visibility controller; [IDQL](#paper-arxiv-2304-10573) — value-based implicit action extraction.
 
 <a id="adjacent-opd--distillation"></a>
 
@@ -433,11 +365,6 @@ Train a student on teacher predictions, often at states the student visits. A re
 - 🚀 **[DMDR — Distribution Matching Distillation Meets Reinforcement Learning](https://arxiv.org/abs/2511.13649)** (2025) · [Code (ImageNet demo)](https://github.com/vvvvvjdy/dmdr)<br>
   Starts with reward-tilted distribution matching, then jointly optimizes distillation and reward objectives so preference alignment guides few-step compression while distillation limits reward hacking.
 
-<a id="paper-arxiv-2607-04428"></a>
-
-- **[dOPSD: On-Policy Self-Distillation for Diffusion Language Models](https://arxiv.org/abs/2607.04428)** (2026)<br>
-  Self-distills masked-token predictions from later, more-decoded states of the same rollout, using the shared model as a better-informed teacher.
-
 <a id="paper-arxiv-2605-15055"></a>
 
 - **[DiffusionOPD: A Unified Perspective of On-Policy Distillation in Diffusion Models](https://arxiv.org/abs/2605.15055)** (2026) · [Code](https://github.com/ali-vilab/DiffusionOPD) · [Project](https://quanhaol.github.io/DiffusionOPD-site/)<br>
@@ -448,16 +375,13 @@ Train a student on teacher predictions, often at states the student visits. A re
 - **[Flow-OPD: On-Policy Distillation for Flow Matching Models](https://arxiv.org/abs/2605.08063)** (2026) · [Code](https://github.com/CostaliyA/Flow-OPD) · [Project](https://costaliya.github.io/Flow-OPD/)<br>
   Distills reward-specialized flow teachers on student rollouts with task routing and a task-agnostic teacher that anchors the generation manifold.
 
-<a id="paper-arxiv-2507-00445"></a>
-
-- **[VIDD — Iterative Distillation for Reward-Guided Fine-Tuning of Diffusion Models in Biomolecular Design](https://arxiv.org/abs/2507.00445)** (2025) · [Code](https://github.com/divelab/VIDD) · [Project](https://divelab.github.io/VIDD/)<br>
-  Distills simulated soft-optimal policies into a diffusion generator using value-informed supervision.
+**See also:** [dOPSD](#paper-arxiv-2607-04428) — language-model self-distillation; [VIDD](#paper-arxiv-2507-00445) — value-informed biomolecular distillation.
 
 <a id="applications--domain-specific-methods"></a>
 
 ## Applications & Domain-Specific Methods
 
-Task- and modality-specific formulations, rewards, architectures, and evaluation settings. Reusable learning algorithms appear in [Core Methods](#core-methods).
+Methods shaped by particular applications or model families, including task-specific formulations, rewards, architectures, and evaluation settings. Browse broadly applicable algorithmic ideas in [Core Methods](#core-methods).
 
 <a id="vision--image--video"></a>
 
@@ -477,6 +401,11 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 - 🚀 **[DanceGRPO: Unleashing GRPO on Visual Generation](https://arxiv.org/abs/2505.07818)** (2025) · [Code](https://github.com/XueZeyue/DanceGRPO) · [Project](https://dancegrpo.github.io/)<br>
   Applies a common group-relative reward recipe across image and video generators.
 
+<a id="paper-arxiv-2604-23380"></a>
+
+- **[V-GRPO: Online Reinforcement Learning for Denoising Generative Models Is Easier than You Think](https://arxiv.org/abs/2604.23380)** (2026) · [Code](https://github.com/tang-bd/v-grpo)<br>
+  Combines GRPO with variance-reduced ELBO surrogates and controlled gradient updates for text-to-image reward optimization.
+
 <a id="paper-arxiv-2501-13918"></a>
 
 - **[VideoAlign / VideoReward — Improving Video Generation with Human Feedback](https://arxiv.org/abs/2501.13918)** (2025) · [Code](https://github.com/KlingAIResearch/VideoAlign) · [Project](https://gongyeliu.github.io/videoalign/)<br>
@@ -487,7 +416,12 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 - **[VADER / Video reward gradients — Video Diffusion Alignment via Reward Gradients](https://arxiv.org/abs/2407.08737)** (2024) · [Code](https://github.com/mihirp1998/VADER) · [Project](https://vader-vid.github.io/)<br>
   Extends differentiable reward alignment to video, including temporal objectives.
 
-**See also:** [DDPO](#paper-arxiv-2305-13301) and [Flow-GRPO](#paper-arxiv-2505-05470) — denoising policy gradients; [Diffusion-DPO](#paper-arxiv-2311-12908) — pairwise preferences; [DRaFT](#paper-arxiv-2309-17400) — reward backpropagation; [forward matching methods](#reward-weighted--forward-matching).
+<a id="paper-arxiv-2305-16381"></a>
+
+- **[DPOK: Reinforcement Learning for Fine-tuning Text-to-Image Diffusion Models](https://arxiv.org/abs/2305.16381)** (2023) · [Code](https://github.com/google-research/google-research/tree/master/dpok) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  Combines image reward policy gradients with reference-distribution regularization.
+
+**See also:** [DDPO](#paper-arxiv-2305-13301) and [Flow-GRPO](#paper-arxiv-2505-05470) — denoising policy gradients; [Diffusion-DPO](#paper-arxiv-2311-12908) — pairwise preferences; [DRaFT](#paper-arxiv-2309-17400) — reward backpropagation; [DDPP](#paper-arxiv-2410-08134) — discrete image posterior matching; [forward matching methods](#reward-weighted--forward-matching).
 
 ### World Models & Interactive Video
 
@@ -544,6 +478,26 @@ Reward training for diffusion language models (DLMs), covering token generation,
 
 <a id="policy-optimization-and-learned-controllers"></a>
 
+<a id="paper-arxiv-2502-01384"></a>
+
+- ⭐ **[SEPO — Fine-Tuning Discrete Diffusion Models with Policy Gradient Methods](https://arxiv.org/abs/2502.01384)** (2025) · [Code (partial release)](https://github.com/ozekri/SEPO) · ![Subdomain: Language & Reasoning · Scientific Discovery](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning%20%C2%B7%20Scientific%20Discovery-ebe3e3.svg?style=flat&labelColor=e8ecef)<br>
+  Derives policy gradients through concrete scores for discrete diffusion models.
+
+<a id="paper-arxiv-2602-07132"></a>
+
+- 🚀 **[Discrete Adjoint Matching](https://arxiv.org/abs/2602.07132)** (2026) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
+  Extends adjoint-style reward optimization to discrete CTMC generators through multiplicative rate corrections.
+
+<a id="paper-arxiv-2510-09541"></a>
+
+- 🚀 **[SPG: Sandwiched Policy Gradient for Masked Diffusion Language Models](https://arxiv.org/abs/2510.09541)** (2025) · [Code](https://github.com/facebookresearch/SPG) · [Project](https://chenyuwang-monica.github.io/spg/) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
+  Uses upper and lower likelihood bounds to stabilize diffusion-language policy updates.
+
+<a id="paper-arxiv-2507-08838"></a>
+
+- 🚀 **[wd1 / wd1++ — wd1: Weighted Policy Optimization for Reasoning in Diffusion Language Models](https://arxiv.org/abs/2507.08838)** (2025) · [Code](https://github.com/xiaohangt/wd1) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
+  Uses weighted log-likelihood and negative-sample unlearning rather than a PPO ratio.
+
 <a id="paper-arxiv-2504-12216"></a>
 
 - 🚀 **[d1 / diffu-GRPO — d1: Scaling Reasoning in Diffusion Large Language Models via Reinforcement Learning](https://arxiv.org/abs/2504.12216)** (2025) · [Code](https://github.com/dllm-reasoning/d1) · [Project](https://dllm-reasoning.github.io/)<br>
@@ -554,37 +508,82 @@ Reward training for diffusion language models (DLMs), covering token generation,
 - **[TIPS: A Tiny Inference-time Policy for Scaling in Diffusion Language Models](https://arxiv.org/abs/2610.22099)** (2026)<br>
   Trains a small Bernoulli unmask/remask controller with GRPO around a frozen language generator.
 
+<a id="paper-arxiv-2607-04428"></a>
+
+- **[dOPSD: On-Policy Self-Distillation for Diffusion Language Models](https://arxiv.org/abs/2607.04428)** (2026)<br>
+  Self-distills masked-token predictions from later, more-decoded states of the same rollout, using the shared model as a better-informed teacher.
+
 <a id="paper-arxiv-2603-13319"></a>
 
 - **[LightningRL: Breaking the Accuracy-Parallelism Trade-off of Block-wise dLLMs via Reinforcement Learning](https://arxiv.org/abs/2603.13319)** (2026) · [Code](https://github.com/SJTU-DENG-Lab/LightningRL)<br>
   Combines correctness and parallelism rewards with NLL anchoring for block-wise DLM policy optimization.
+
+<a id="paper-arxiv-2603-06743"></a>
+
+- **[StableDRL — Stabilizing Reinforcement Learning for Diffusion Language Models](https://arxiv.org/abs/2603.06743)** (2026) · [Code](https://github.com/JianyuanZhong/StableDRL) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
+  Uses unconditional clipping and self-normalization to stabilize GRPO updates from estimated diffusion-language likelihood ratios.
 
 <a id="paper-arxiv-2512-09106"></a>
 
 - **[Learning Unmasking Policies for Diffusion Language Models](https://arxiv.org/abs/2512.09106)** (2025) · [Code](https://github.com/apple-aiml-research/ml-rl-dllm)<br>
   Learns reward-driven unmasking decisions, separating position control from token generation.
 
-<a id="paper-arxiv-2509-01142"></a>
-
-- **[Dream-Coder 7B: An Open Diffusion Language Model for Code](https://arxiv.org/abs/2509.01142)** (2025)<br>
-  Combines code diffusion pretraining and supervised fine-tuning with unit-test GRPO, complementary masking, and asymmetric clipping.
-
 <a id="paper-arxiv-2506-20639"></a>
 
 - **[DiffuCoder: Understanding and Improving Masked Diffusion Models for Code Generation](https://arxiv.org/abs/2506.20639)** (2025) · [Code](https://github.com/apple-aiml-research/ml-diffucoder) · [Project](https://machinelearning.apple.com/research/diffucoder)<br>
   Uses complementary masks in coupled-GRPO to reduce token log-likelihood estimation variance during code-model reward training.
 
+<a id="paper-arxiv-2505-19223"></a>
+
+- **[LLaDA 1.5 / VRPO — LLaDA 1.5: Variance-Reduced Preference Optimization for Large Language Diffusion Models](https://arxiv.org/abs/2505.19223)** (2025) · [Code](https://github.com/ML-GSAI/LLaDA-1.5) · [Project](https://ml-gsai.github.io/LLaDA-1.5-Demo/) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
+  Controls variance in variational preference alignment for a masked language model.
+
+<a id="paper-arxiv-2410-08134"></a>
+
+- **[DDPP — Steering Masked Discrete Diffusion Models via Discrete Denoising Posterior Prediction](https://arxiv.org/abs/2410.08134)** (2024) · ![Subdomain: Images & Video · Language & Reasoning · Scientific Discovery](https://img.shields.io/badge/Subdomain-Images%20%26%20Video%20%C2%B7%20Language%20%26%20Reasoning%20%C2%B7%20Scientific%20Discovery-e6e5e8.svg?style=flat&labelColor=e8ecef)<br>
+  Learns reward-tilted discrete denoising posteriors with endpoint-prediction objectives.
+
 <a id="broader-training-time-reward-optimization-1"></a>
 
 <a id="preferences--reward-weighted-training"></a>
 
-**See also:** [SEPO](#paper-arxiv-2502-01384) — discrete policy gradients; [likelihood-surrogate methods](#likelihood-surrogates--elbo-based-optimization) — SPG, StableDRL, VRPO, and DiPOD; [wd1 / wd1++](#paper-arxiv-2507-08838) — ratio-free weighting; [Discrete Adjoint Matching](#paper-arxiv-2602-07132) — CTMC optimization.
+**See also:** [DiPOD](#paper-arxiv-2606-13795) — on-policy ELBO regularization; [Dream-Coder 7B](#paper-arxiv-2509-01142) — code-model training report.
 
 <a id="robotics--control--vla"></a>
 
 ### Robotics & Control
 
 Control-specific representations and vision-language-action (VLA) frameworks.
+
+<a id="paper-arxiv-2205-09991"></a>
+
+- ⭐ **[Diffuser — Planning with Diffusion for Flexible Behavior Synthesis](https://arxiv.org/abs/2205.09991)** (2022) · [Code](https://github.com/jannerm/diffuser) · [Project](https://diffusion-planning.github.io/)<br>
+  Plans trajectories by denoising with reward and value guidance at inference.
+
+<a id="paper-arxiv-2605-03065"></a>
+
+- 🚀 **[OGPO — Sample Efficient Full-Finetuning of Generative Control Policies](https://arxiv.org/abs/2605.03065)** (2026) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
+  Uses replay-trained critics as terminal rewards for PPO-style improvement through the full generative policy.
+
+<a id="paper-arxiv-2602-02481"></a>
+
+- 🚀 **[FPO++ — Flow Policy Gradients for Robot Control](https://arxiv.org/abs/2602.02481)** (2026) · [Code](https://github.com/amazon-far/fpo-control) · [Project](https://hongsukchoi.github.io/fpo-control) · *online* · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
+  Refines flow-policy optimization for robot control with per-noise-sample proxies and asymmetric trust regions.
+
+<a id="paper-arxiv-2506-15799"></a>
+
+- 🚀 **[DSRL — Steering Your Diffusion Policy with Latent Space Reinforcement Learning](https://arxiv.org/abs/2506.15799)** (2025) · [Code](https://github.com/ajwagen/dsrl) · [Project](https://diffusion-steering.github.io/)<br>
+  Learns a latent/noise steering policy around a frozen diffusion or flow action generator.
+
+<a id="paper-arxiv-2505-22094"></a>
+
+- 🚀 **[ReinFlow: Fine-tuning Flow Matching Policy with Online Reinforcement Learning](https://arxiv.org/abs/2505.22094)** (2025) · [Code](https://github.com/ReinFlow/ReinFlow) · [Project](https://reinflow.github.io/) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
+  Injects learned stochasticity into a flow policy to support online policy-gradient fine-tuning for control.
+
+<a id="paper-arxiv-2606-06967"></a>
+
+- **[GenPO++: Generative Policy Optimization with Jacobian-free Likelihood Ratios](https://arxiv.org/abs/2606.06967)** (2026) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
+  Uses a reversible history-state solver for Jacobian-free likelihood-ratio updates.
 
 <a id="core-rl-generative-policy-optimization"></a>
 
@@ -626,6 +625,11 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 
 #### Vision-language-action policies
 
+<a id="paper-arxiv-2606-05468"></a>
+
+- **[FlowPRO / RPRO — FlowPRO: Reward-Free Reinforced Fine-Tuning of Flow-Matching VLAs via Proximalized Preference Optimization](https://arxiv.org/abs/2606.05468)** (2026) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
+  Anchors flow-VLA implicit rewards with proximal preference optimization on paired failure/correction trajectories, as used in [HyVLA-0.5](#paper-arxiv-2606-14409).
+
 <a id="paper-arxiv-2511-14759"></a>
 
 - **[RECAP / pi-star0.6 — $\pi^{*}_{0.6}$: a VLA That Learns From Experience](https://arxiv.org/abs/2511.14759)** (2025) · [Project](https://www.pi.website/blog/pistar06)<br>
@@ -636,7 +640,7 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 - **[piRL — $\pi_\texttt{RL}$: Online RL Fine-tuning for Flow-based Vision-Language-Action Models](https://arxiv.org/abs/2510.25889)** (2025) · [Code](https://github.com/RLinf/RLinf)<br>
   Fine-tunes flow VLAs with Flow-Noise learnable stochastic transitions or Flow-SDE updates over a two-layer denoising/environment MDP.
 
-**See also:** [value-based methods](#value-based-methods) — including [FQL](#paper-arxiv-2502-02538) and [DIME](#paper-arxiv-2502-02316); [DPPO](#paper-arxiv-2409-00588) and [ReinFlow](#paper-arxiv-2505-22094) — action-policy gradients; [likelihood-surrogate methods](#likelihood-surrogates--elbo-based-optimization) — FPO / FMPG, FPO++, Timestep Weighting, and DiPOD; [DSRL](#paper-arxiv-2506-15799) — latent steering.
+**See also:** [value-based methods](#value-based-methods) — including [FQL](#paper-arxiv-2502-02538) and [DIME](#paper-arxiv-2502-02316); [DPPO](#paper-arxiv-2409-00588) — action-policy gradients; [likelihood-surrogate methods](#likelihood-surrogates--elbo-based-optimization) — FPO / FMPG, Timestep Weighting, and DiPOD.
 
 <a id="science"></a>
 
@@ -661,6 +665,16 @@ Reward-guided generation of graphs, crystals, proteins, and antibodies. Predicte
 - **[MatInvent — Accelerating inverse materials design using generative diffusion models with reinforcement learning](https://arxiv.org/abs/2511.03112)** (2025) · [Code](https://github.com/schwallergroup/matinvent)<br>
   Amortizes multiobjective crystal-design rewards into a denoising policy.
 
+<a id="paper-arxiv-2507-00445"></a>
+
+- **[VIDD — Iterative Distillation for Reward-Guided Fine-Tuning of Diffusion Models in Biomolecular Design](https://arxiv.org/abs/2507.00445)** (2025) · [Code](https://github.com/divelab/VIDD) · [Project](https://divelab.github.io/VIDD/)<br>
+  Distills simulated soft-optimal policies into a diffusion generator using value-informed supervision.
+
+<a id="paper-arxiv-2410-13643"></a>
+
+- **[DRAKES — Fine-Tuning Discrete Diffusion Models via Reward Optimization with Applications to DNA and Protein Design](https://arxiv.org/abs/2410.13643)** (2024) · [Code](https://github.com/ChenyuWang-Monica/DRAKES) · ![Subdomain: Language & Reasoning · Scientific Discovery](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning%20%C2%B7%20Scientific%20Discovery-ebe3e3.svg?style=flat&labelColor=e8ecef)<br>
+  Backpropagates through relaxed discrete denoising for reward-driven biological sequence design.
+
 <a id="paper-arxiv-2402-16302"></a>
 
 - **[GDPO-Graph — Graph Diffusion Policy Optimization](https://arxiv.org/abs/2402.16302)** (2024) · [Code](https://github.com/sail-sg/GDPO)<br>
@@ -675,7 +689,7 @@ Reward-guided generation of graphs, crystals, proteins, and antibodies. Predicte
 - **[AbDPO — Antigen-Specific Antibody Design via Direct Energy-based Preference Optimization](https://arxiv.org/abs/2403.16576)** (2024)<br>
   Uses decomposed energy preferences for antibody sequence and structure alignment.
 
-**See also:** [DRAKES](#paper-arxiv-2410-13643) — relaxed discrete reward gradients; [DDPP](#paper-arxiv-2410-08134) — discrete posterior matching; [Tilt Matching](#paper-arxiv-2512-21829) — particle sampling; [VIDD](#paper-arxiv-2507-00445) — value-informed distillation; [SVDD](#paper-arxiv-2408-08252) — inference-time soft-value selection.
+**See also:** [SEPO](#paper-arxiv-2502-01384) — discrete policy gradients for DNA; [DDPP](#paper-arxiv-2410-08134) — discrete posterior matching for proteins; [Tilt Matching](#paper-arxiv-2512-21829) — particle sampling; [SVDD](#paper-arxiv-2408-08252) — inference-time soft-value selection.
 
 <a id="audio-generation"></a>
 
@@ -756,6 +770,11 @@ Model and system reports describing reward-driven training recipes for diffusion
 
 - **[HunyuanImage 3.0 Technical Report](https://arxiv.org/abs/2509.23951)** (2025) · [Code](https://github.com/Tencent-Hunyuan/HunyuanImage-3.0) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Combines preference, stochastic-flow and reward-distribution alignment stages in a native multimodal image generator.
+
+<a id="paper-arxiv-2509-01142"></a>
+
+- **[Dream-Coder 7B: An Open Diffusion Language Model for Code](https://arxiv.org/abs/2509.01142)** (2025) · ![Subdomain: Language & Reasoning](https://img.shields.io/badge/Subdomain-Language%20%26%20Reasoning-e5e0f1.svg?style=flat&labelColor=e8ecef)<br>
+  Combines code diffusion pretraining and supervised fine-tuning with unit-test GRPO, complementary masking, and asymmetric clipping.
 
 <a id="paper-arxiv-2505-15809"></a>
 
