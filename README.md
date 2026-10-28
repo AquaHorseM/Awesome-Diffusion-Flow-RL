@@ -290,6 +290,11 @@ Broadly applicable algorithmic ideas organized by how they obtain a policy-impro
 - ⭐ **[AWM — Advantage Weighted Matching: Aligning RL with Pretraining in Diffusion Models](https://arxiv.org/abs/2509.25050)** (2025) · [Code](https://github.com/scxue/advantage_weighted_matching) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Derives advantage-weighted score/flow matching and practical stabilized objectives.
 
+<a id="paper-arxiv-2610-12572"></a>
+
+- 🚀 **[DiffusionART: Efficient, Stable and Scalable Reinforcement of Diffusion Models](https://arxiv.org/abs/2610.12572)** (2026) · [Code](https://github.com/vanzll/DiffusionART) · [Project](https://vanzll.github.io/diffusionart-project/) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  Regresses aggregation-first reward-tilted velocity targets and adds drift-adaptive restoration for black-box reward fine-tuning.
+
 <a id="paper-arxiv-2605-10759"></a>
 
 - 🚀 **[RAM — Reinforce Adjoint Matching: Scaling RL Post-Training of Diffusion and Flow-Matching Models](https://arxiv.org/abs/2605.10759)** (2026) · [Code](https://github.com/AndreasBergmeister/ram) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
@@ -299,6 +304,11 @@ Broadly applicable algorithmic ideas organized by how they obtain a policy-impro
 
 - 🚀 **[DiffusionNFT: Online Diffusion Reinforcement with Forward Process](https://arxiv.org/abs/2509.16117)** (2025) · [Code](https://github.com/NVlabs/DiffusionNFT) · [Project](https://research.nvidia.com/labs/cosmos-lab/diffusionnft/) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Uses signed, advantage-guided forward-process fitting with a moving reference, avoiding retained reverse trajectories.
+
+<a id="paper-arxiv-2603-14128"></a>
+
+- **[CRD — Diffusion Reinforcement Learning via Centered Reward Distillation](https://arxiv.org/abs/2603.14128)** (2026) · [Code](https://github.com/yuanzhi-zhu/CRD) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  Derives a forward-process reward-matching objective from KL-regularized reward maximization, where the intractable normalizer cancels under within-prompt reward centering.
 
 <a id="paper-arxiv-2512-21829"></a>
 
@@ -391,6 +401,11 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 
 <a id="broader-training-time-reward-optimization"></a>
 
+<a id="paper-arxiv-2406-04314"></a>
+
+- ⭐ **[SPO — Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization](https://arxiv.org/abs/2406.04314)** (2024; CVPR 2025) · [Code](https://github.com/RockeyCoss/SPO) · [Project](https://rockeycoss.github.io/spo.github.io/)<br>
+  Fine-tunes diffusion generators with stepwise DPO on shared-latent candidate pairs ranked by a step-aware preference model to improve image aesthetics.
+
 <a id="paper-arxiv-2304-05977"></a>
 
 - ⭐ **[ImageReward / ReFL — ImageReward: Learning and Evaluating Human Preferences for Text-to-Image Generation](https://arxiv.org/abs/2304.05977)** (2023) · [Code](https://github.com/zai-org/ImageReward)<br>
@@ -405,6 +420,11 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 
 - **[V-GRPO: Online Reinforcement Learning for Denoising Generative Models Is Easier than You Think](https://arxiv.org/abs/2604.23380)** (2026) · [Code](https://github.com/tang-bd/v-grpo)<br>
   Combines GRPO with variance-reduced ELBO surrogates and controlled gradient updates for text-to-image reward optimization.
+
+<a id="paper-arxiv-2509-06942"></a>
+
+- **[Direct-Align / SRPO — Directly Aligning the Full Diffusion Trajectory with Fine-Grained Human Preference](https://arxiv.org/abs/2509.06942)** (2025) · [Code](https://github.com/Tencent-Hunyuan/SRPO)<br>
+  Uses known injected noise for partial analytic image recovery and semantic-relative differentiable rewards to align image generation across timesteps.
 
 <a id="paper-arxiv-2501-13918"></a>
 
@@ -702,10 +722,20 @@ Audio-specific generation architectures, preference signals, and reward decompos
 - **[PrismAudio: Decomposed Chain-of-Thoughts and Multi-dimensional Rewards for Video-to-Audio Generation](https://arxiv.org/abs/2511.18833)** (2025) · [Project](https://PrismAudio-Project.github.io)<br>
   Aligns semantic, temporal, aesthetic, and spatial reasoning with corresponding audio rewards, using random-window ODE-SDE Fast-GRPO.
 
+<a id="paper-arxiv-2504-02407"></a>
+
+- **[F5R-TTS: Improving Flow-Matching based Text-to-Speech with Group Relative Policy Optimization](https://arxiv.org/abs/2504.02407)** (2025) · [Code](https://github.com/FrontierLabs/F5R-TTS) · [Project](https://frontierlabs.github.io/F5R/)<br>
+  Reformulates flow-matching TTS outputs as Gaussian policies and applies GRPO with ASR and speaker-similarity rewards.
+
 <a id="paper-arxiv-2412-21037"></a>
 
 - **[TangoFlux / CRPO — TangoFlux: Super Fast and Faithful Text to Audio Generation with Flow Matching and Clap-Ranked Preference Optimization](https://arxiv.org/abs/2412.21037)** (2024) · [Code](https://github.com/declare-lab/TangoFlux) · [Project](https://tangoflux.github.io/)<br>
   Uses iterative CLAP-ranked preferences to align a rectified-flow text-to-audio generator.
+
+<a id="paper-arxiv-2404-09956"></a>
+
+- **[Tango 2: Aligning Diffusion-based Text-to-Audio Generations through Direct Preference Optimization](https://arxiv.org/abs/2404.09956)** (2024) · [Code](https://github.com/declare-lab/tango/tree/master/tango2) · [Project](https://tango2-web.github.io/)<br>
+  Applies offline Diffusion-DPO to synthetic Audio-Alpaca preferences for sound-event presence and temporal ordering.
 
 ## Tech Reports
 
@@ -730,6 +760,11 @@ Model and system reports describing reward-driven training recipes for diffusion
 
 - 🚀 **[Seedance 1.0: Exploring the Boundaries of Video Generation Models](https://arxiv.org/abs/2506.09113)** (2025) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Directly maximizes multidimensional video rewards and extends reward post-training to the accelerated diffusion refiner.
+
+<a id="paper-arxiv-2609-08936"></a>
+
+- **[AuK — AuK Technical Report: An Open-Source Foundational Model for Speech Generation and Editing](https://arxiv.org/abs/2609.08936)** (2026) · [Code](https://github.com/Tencent-Hunyuan/AuK) · [Project](https://auk-project.github.io/) · ![Subdomain: Audio](https://img.shields.io/badge/Subdomain-Audio-efdee6.svg?style=flat&labelColor=e8ecef)<br>
+  Post-trains a rectified-flow speech generator with human-feedback preferences for editing and reward-based RL for speech generation.
 
 <a id="paper-arxiv-2608-00146"></a>
 

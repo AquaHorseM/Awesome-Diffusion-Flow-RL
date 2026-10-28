@@ -16,6 +16,7 @@ Ideas and formulations that help explain the field.
 | [LPO / Latent Reward Model](README.md#paper-arxiv-2502-01051) (2025) | Noisy-latent stepwise preference optimization |
 | [Adjoint Matching](README.md#paper-arxiv-2409-08861) (2024) | Lean-adjoint regression for stochastic control |
 | [DPPO](README.md#paper-arxiv-2409-00588) (2024) | PPO over two-layer diffusion MDPs |
+| [SPO](README.md#paper-arxiv-2406-04314) (2024; CVPR 2025) | Stepwise preference optimization |
 | [QSM](README.md#paper-arxiv-2312-11752) (2023) | Q-score policy improvement |
 | [Diffusion-DPO](README.md#paper-arxiv-2311-12908) (2023) | ELBO-based direct preference optimization |
 | [DRaFT](README.md#paper-arxiv-2309-17400) (2023) | Reward backpropagation through denoising |
@@ -34,6 +35,7 @@ Promising approaches to current bottlenecks, from likelihood estimation to world
 
 | Paper | Reading focus |
 |---|---|
+| [DiffusionART](README.md#paper-arxiv-2610-12572) (2026) | Aggregation-first reward tilting |
 | [CoRe](README.md#paper-arxiv-2609-36245) (2026) | Co-evolving video rewards |
 | [Timestep Weighting](README.md#paper-arxiv-2609-32665) (2026) | ELBO timestep weighting |
 | [CrystalGRPO](README.md#paper-arxiv-2608-06582) (2026) | Coordinate-lattice GRPO with coverage preservation |
