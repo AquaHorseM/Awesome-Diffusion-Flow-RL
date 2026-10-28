@@ -337,6 +337,11 @@ Core learning algorithms organized by how they obtain a policy-improvement updat
 - ⭐ **[AWM — Advantage Weighted Matching: Aligning RL with Pretraining in Diffusion Models](https://arxiv.org/abs/2509.25050)** (2025) · [Code](https://github.com/scxue/advantage_weighted_matching) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Derives advantage-weighted score/flow matching and practical stabilized objectives.
 
+<a id="paper-arxiv-2610-12572"></a>
+
+- **[DiffusionART: Efficient, Stable and Scalable Reinforcement of Diffusion Models](https://arxiv.org/abs/2610.12572)** (2026) · [Code](https://github.com/vanzll/DiffusionART) · [Project](https://vanzll.github.io/diffusionart-project/) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  Regresses aggregation-first reward-tilted velocity targets and adds drift-adaptive restoration for on-policy diffusion-generator fine-tuning with black-box rewards.
+
 <a id="paper-arxiv-2605-10759"></a>
 
 - 🚀 **[RAM — Reinforce Adjoint Matching: Scaling RL Post-Training of Diffusion and Flow-Matching Models](https://arxiv.org/abs/2605.10759)** (2026) · [Code](https://github.com/AndreasBergmeister/ram) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
