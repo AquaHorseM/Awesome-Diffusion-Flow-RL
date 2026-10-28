@@ -14,10 +14,10 @@ Keep one full entry per paper and use anchor cross-links for other categories. I
 
 Keep the public list concise and readable:
 
-- Put a paper in Core Methods when its primary contribution is a reusable learning algorithm best understood by method family, even if its experiments focus on one domain. Keep methods whose main contribution depends on domain-specific architectures, rewards, representations, environment structure, or scientific objects under their domain. Use a stable paper link and author-linked code or project page when available.
+- Choose placement by the main contribution: broadly applicable algorithmic ideas belong in Core Methods, while methods shaped by particular applications or model families belong under their domain. These are editorial judgments, independent of importance or potential applicability elsewhere. Use a stable paper link and author-linked code or project page when available.
 - Give each Core Methods entry exactly one subtle `Subdomain` badge for the domains actually developed or evaluated in the original paper, not presumed applicability. Use only `Images & Video`, `World Models`, `Language & Reasoning`, `Robotics & Control`, `Scientific Discovery`, and `Audio`; combine multiple values with ` · ` in one badge. Reuse the existing light badge style and colors for the same value. Domain-specific entries normally need no badge; do not add method or training-regime badges.
 - Write one sentence explaining the algorithmic contribution rather than repeating the abstract.
-- Place model and system reports in Tech Reports, with a Subdomain badge and a concise description of their reward-training recipe. Keep separately published learning algorithms in Core Methods and cross-link related reports.
+- Place model and system reports in Tech Reports, with a Subdomain badge and a concise description of their reward-training recipe. Place separately published learning algorithms by their main contribution and cross-link related reports.
 - Use one full entry per paper and anchor links for secondary categories.
 - Reserve ⭐ Fundamental for work that explains the field and 🚀 Frontier & Potential for especially promising current directions. These markers express editorial judgment, not ordering or citation rank.
 - Keep benchmarks, reward models, inference steering, and distillation clearly distinguished from generator or policy training.
