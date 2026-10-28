@@ -239,6 +239,11 @@ Broadly applicable algorithmic ideas organized by how they obtain a policy-impro
 - ⭐ **[DIME:Diffusion-Based Maximum Entropy Reinforcement Learning](https://arxiv.org/abs/2502.02316)** (2025) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
   Builds maximum-entropy diffusion policy iteration from an entropy-bound Bellman construction.
 
+<a id="paper-arxiv-2605-08733"></a>
+
+- ⭐ **[SoftGAC — Generative Actor-Critic with Soft Bridge Policies](https://arxiv.org/abs/2605.08733)** (2026) · [Code](https://github.com/skypitcher/soft_gac_jax) · [Project](https://skypitcher.github.io/soft_gac_home/) · *online* · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
+  Trains a one-call actor of stochastic Gaussian bridge layers whose closed-form path KL to a max-entropy reference replaces the intractable entropy, endpoint-equivalent to SAC.
+
 <a id="paper-arxiv-2312-11752"></a>
 
 - ⭐ **[QSM — Learning a Diffusion Model Policy from Rewards via Q-Score Matching](https://arxiv.org/abs/2312.11752)** (2023) · [Code](https://github.com/escontra/score_matching_rl) · [Project](https://www.michaelpsenka.io/qsm/) · ![Subdomain: Robotics & Control](https://img.shields.io/badge/Subdomain-Robotics%20%26%20Control-e1ead8.svg?style=flat&labelColor=e8ecef)<br>
@@ -640,7 +645,7 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 - **[piRL — $\pi_\texttt{RL}$: Online RL Fine-tuning for Flow-based Vision-Language-Action Models](https://arxiv.org/abs/2510.25889)** (2025) · [Code](https://github.com/RLinf/RLinf)<br>
   Fine-tunes flow VLAs with Flow-Noise learnable stochastic transitions or Flow-SDE updates over a two-layer denoising/environment MDP.
 
-**See also:** [value-based methods](#value-based-methods) — including [FQL](#paper-arxiv-2502-02538) and [DIME](#paper-arxiv-2502-02316); [DPPO](#paper-arxiv-2409-00588) — action-policy gradients; [likelihood-surrogate methods](#likelihood-surrogates--elbo-based-optimization) — FPO / FMPG, Timestep Weighting, and DiPOD.
+**See also:** [value-based methods](#value-based-methods) — including [FQL](#paper-arxiv-2502-02538), [DIME](#paper-arxiv-2502-02316), and [SoftGAC](#paper-arxiv-2605-08733) (one-step soft bridge actor); [DPPO](#paper-arxiv-2409-00588) — action-policy gradients; [likelihood-surrogate methods](#likelihood-surrogates--elbo-based-optimization) — FPO / FMPG, Timestep Weighting, and DiPOD.
 
 <a id="science"></a>
 

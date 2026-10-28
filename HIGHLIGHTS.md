@@ -8,6 +8,7 @@ Ideas and formulations that help explain the field.
 
 | Paper | Reading focus |
 |---|---|
+| [SoftGAC](README.md#paper-arxiv-2605-08733) (2026) | One-step soft bridge with closed-form path-KL MaxEnt |
 | [AWM](README.md#paper-arxiv-2509-25050) (2025) | Advantage-weighted matching |
 | [FPO / FMPG](README.md#paper-arxiv-2507-21053) (2025) | Flow-loss policy-ratio surrogates |
 | [FQL](README.md#paper-arxiv-2502-02538) (2025) | Flow-distilled one-step Q optimization |
