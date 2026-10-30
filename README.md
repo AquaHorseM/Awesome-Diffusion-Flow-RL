@@ -449,7 +449,7 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 <a id="paper-arxiv-2508-09968"></a>
 
 - **[Noise Hypernetworks: Amortizing Test-Time Compute in Diffusion Models](https://arxiv.org/abs/2508.09968)** (2025) · [Code](https://github.com/ExplainableML/HyperNoise) · [Project](https://noisehypernetworks.github.io/)<br>
-  Learns initial-noise perturbations through reward gradients from a frozen distilled generator with noise-space regularization.
+  Trains a hypernetwork to perturb initial noise using reward gradients through a frozen distilled generator and a noise-space penalty.
 
 <a id="paper-arxiv-2506-12036"></a>
 
@@ -623,7 +623,7 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 <a id="paper-arxiv-2603-15757"></a>
 
 - **[Golden Ticket — You've Got a Golden Ticket: Improving Generative Robot Policies With A Single Noise Vector](https://arxiv.org/abs/2603.15757)** (2026) · [Project](https://lottery-tickets.rai-inst.com/)<br>
-  Searches episodic rewards for a single initial noise vector used across states by a frozen diffusion or flow policy.
+  Uses episode returns to search for one noise vector shared across states of a frozen diffusion or flow policy.
 
 <a id="paper-arxiv-2602-05051"></a>
 
@@ -668,7 +668,7 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 <a id="paper-arxiv-2603-05296"></a>
 
 - **[LPS — Latent Policy Steering through One-Step Flow Policies](https://arxiv.org/abs/2603.05296)** (2026) · [Project](https://jellyho.github.io/LPS/)<br>
-  Updates a latent actor with action-space Q-gradients through a one-step MeanFlow policy, alongside imitation training of the decoder.
+  Trains a latent actor with Q-gradients through a one-step MeanFlow decoder and fits the decoder by imitation.
 
 <a id="paper-arxiv-2603-14245"></a>
 
@@ -714,7 +714,7 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 <a id="paper-arxiv-2607-08877"></a>
 
 - **[FlowDAgger: Human-in-the-Loop Adaptation of Generative Robot Policies in Latent Space](https://arxiv.org/abs/2607.08877)** (2026) · [Project](https://microsoft.github.io/FlowDAgger)<br>
-  Fits a noise policy to inverted human corrections by supervised learning while keeping the generative robot policy frozen.
+  Trains a noise policy on inverted human corrections while keeping the generative robot policy frozen.
 
 <a id="paper-arxiv-2606-13675"></a>
 
