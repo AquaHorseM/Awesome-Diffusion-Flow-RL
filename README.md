@@ -367,9 +367,7 @@ Guide a fixed generator with values, resampling, or a learned controller. A stee
 - **[SVDD — Derivative-Free Guidance in Continuous and Discrete Diffusion Models with Soft Value-Based Decoding](https://arxiv.org/abs/2408.08252)** (2024) · [Code](https://github.com/masa-ue/SVDD)<br>
   Selects denoising candidates using soft future values, without reward-updating the generator.
 
-**Noise-space methods:** [Robot noise-space RL](#noise-space-reinforcement-learning) — noise critics, latent policy gradients, and action inversion; [image noise optimization](#noise-space-rl-and-reward-optimization) — Noise PPO, Noise Hypernetworks, and ReNO.
-
-**See also:** [Diffuser](#paper-arxiv-2205-09991) — trajectory planning; [DSRL](#paper-arxiv-2506-15799) — latent steering; [TIPS](#paper-arxiv-2610-22099) — RL-trained DLM visibility controller; [IDQL](#paper-arxiv-2304-10573) — value-based implicit action extraction.
+**See also:** [Robot noise-space RL](#noise-space-reinforcement-learning) — noise critics, latent policy gradients, and action inversion; [image noise optimization](#noise-space-rl-and-reward-optimization) — Noise PPO, Noise Hypernetworks, and ReNO; [Diffuser](#paper-arxiv-2205-09991) — trajectory planning; [DSRL](#paper-arxiv-2506-15799) — latent steering; [TIPS](#paper-arxiv-2610-22099) — RL-trained DLM visibility controller; [IDQL](#paper-arxiv-2304-10573) — value-based implicit action extraction.
 
 <a id="adjacent-opd--distillation"></a>
 
@@ -461,12 +459,12 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 
 <a id="paper-arxiv-2508-09968"></a>
 
-- **[Noise Hypernetworks: Amortizing Test-Time Compute in Diffusion Models](https://arxiv.org/abs/2508.09968)** (2025)<br>
+- **[Noise Hypernetworks: Amortizing Test-Time Compute in Diffusion Models](https://arxiv.org/abs/2508.09968)** (2025) · [Code](https://github.com/ExplainableML/HyperNoise) · [Project](https://noisehypernetworks.github.io/)<br>
   Trains a noise-modulating hypernetwork through distilled generators with a regularized reward objective, amortizing per-prompt noise optimization into a learned proposer.
 
 <a id="paper-arxiv-2406-04312"></a>
 
-- **[ReNO: Enhancing One-step Text-to-Image Models through Reward-based Noise Optimization](https://arxiv.org/abs/2406.04312)** (2024)<br>
+- **[ReNO: Enhancing One-step Text-to-Image Models through Reward-based Noise Optimization](https://arxiv.org/abs/2406.04312)** (2024) · [Code](https://github.com/ExplainableML/ReNO)<br>
   Performs inference-time gradient ascent on each initial noise using human-preference rewards through a fixed one-step generator, without training a noise policy.
 
 ### World Models & Interactive Video
@@ -637,7 +635,7 @@ These methods improve actions by learning the input noise of a diffusion or flow
 
 <a id="paper-arxiv-2606-01151"></a>
 
-- **[LP-DS — Lagrangian Perturbation Diffusion Steering: Latent Reinforcement Learning for Generative Policies](https://arxiv.org/abs/2606.01151)** (2026)<br>
+- **[LP-DS — Lagrangian Perturbation Diffusion Steering: Latent Reinforcement Learning for Generative Policies](https://arxiv.org/abs/2606.01151)** (2026) · [Project](https://sites.google.com/view/lp-ds/home)<br>
   Learns a noise-space residual with a Lagrangian trust-region objective to improve downstream value while constraining perturbations around a frozen generative policy.
 
 <a id="paper-arxiv-2605-10821"></a>
@@ -647,7 +645,7 @@ These methods improve actions by learning the input noise of a diffusion or flow
 
 <a id="paper-arxiv-2603-05296"></a>
 
-- **[LPS — Latent Policy Steering through One-Step Flow Policies](https://arxiv.org/abs/2603.05296)** (2026)<br>
+- **[LPS — Latent Policy Steering through One-Step Flow Policies](https://arxiv.org/abs/2603.05296)** (2026) · [Project](https://jellyho.github.io/LPS/)<br>
   Backpropagates action-space Q-gradients through a one-step MeanFlow decoder into a latent actor for offline RL, while also fitting the base policy by imitation.
 
 <a id="paper-arxiv-2602-05051"></a>
@@ -664,7 +662,7 @@ These methods improve actions by learning the input noise of a diffusion or flow
 <a id="paper-arxiv-2603-14245"></a>
 
 - **[GoldenStart: Q-Guided Priors and Entropy Control for Distilling Flow Policies](https://arxiv.org/abs/2603.14245)** (2026)<br>
-  Learns a conditional-VAE prior from Q-selected noises and distills a flow teacher into a stochastic one-step actor with entropy control, rather than only adapting noise around a permanently frozen decoder.
+  Learns a conditional-VAE prior from Q-selected noises and distills a flow teacher into a stochastic one-step actor with entropy control while continuing to train the flow teacher.
 
 **Related noise steering: action supervision and reward search.**
 
@@ -675,12 +673,12 @@ These methods improve actions by learning the input noise of a diffusion or flow
 
 <a id="paper-arxiv-2607-08877"></a>
 
-- **[FlowDAgger: Human-in-the-Loop Adaptation of Generative Robot Policies in Latent Space](https://arxiv.org/abs/2607.08877)** (2026)<br>
+- **[FlowDAgger: Human-in-the-Loop Adaptation of Generative Robot Policies in Latent Space](https://arxiv.org/abs/2607.08877)** (2026) · [Project](https://microsoft.github.io/FlowDAgger)<br>
   Trains a latent policy by supervised imitation of inverted human corrections while keeping the base generator frozen, providing a correction-driven counterpart to noise-space RL.
 
 <a id="paper-arxiv-2603-15757"></a>
 
-- **[Golden Ticket — You've Got a Golden Ticket: Improving Generative Robot Policies With A Single Noise Vector](https://arxiv.org/abs/2603.15757)** (2026)<br>
+- **[Golden Ticket — You've Got a Golden Ticket: Improving Generative Robot Policies With A Single Noise Vector](https://arxiv.org/abs/2603.15757)** (2026) · [Project](https://lottery-tickets.rai-inst.com/)<br>
   Uses episodic derivative-free reward search to select one constant initial noise vector shared across states for a frozen diffusion or flow policy.
 
 <a id="core-rl-generative-policy-optimization"></a>
