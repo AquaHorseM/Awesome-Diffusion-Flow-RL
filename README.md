@@ -441,6 +441,21 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 - **[DPOK: Reinforcement Learning for Fine-tuning Text-to-Image Diffusion Models](https://arxiv.org/abs/2305.16381)** (2023) · [Code](https://github.com/google-research/google-research/tree/master/dpok) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Combines image reward policy gradients with reference-distribution regularization.
 
+<a id="paper-arxiv-2508-09968"></a>
+
+- **[Noise Hypernetworks: Amortizing Test-Time Compute in Diffusion Models](https://arxiv.org/abs/2508.09968)** (2025) · [Code](https://github.com/ExplainableML/HyperNoise) · [Project](https://noisehypernetworks.github.io/)<br>
+  Trains a hypernetwork to perturb initial noise using reward gradients through a frozen distilled generator and a noise-space penalty.
+
+<a id="paper-arxiv-2506-12036"></a>
+
+- **[Noise PPO — A Minimalist Method for Fine-tuning Text-to-Image Diffusion Models](https://arxiv.org/abs/2506.12036)** (2025)<br>
+  Trains a prompt-conditioned noise policy with PPO and image rewards while keeping the diffusion generator frozen.
+
+<a id="paper-arxiv-2406-04312"></a>
+
+- **[ReNO: Enhancing One-step Text-to-Image Models through Reward-based Noise Optimization](https://arxiv.org/abs/2406.04312)** (2024) · [Code](https://github.com/ExplainableML/ReNO)<br>
+  Optimizes initial noise at inference time using preference-reward gradients through a fixed one-step image generator.
+
 **See also:** [DDPO](#paper-arxiv-2305-13301) and [Flow-GRPO](#paper-arxiv-2505-05470) — denoising policy gradients; [Diffusion-DPO](#paper-arxiv-2311-12908) — pairwise preferences; [DRaFT](#paper-arxiv-2309-17400) — reward backpropagation; [DDPP](#paper-arxiv-2410-08134) — discrete image posterior matching; [forward matching methods](#reward-weighted--forward-matching).
 
 ### World Models & Interactive Video
@@ -624,6 +639,11 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 - **[OFQL — One-Step Flow Q-Learning: Addressing the Diffusion Policy Bottleneck in Offline Reinforcement Learning](https://arxiv.org/abs/2508.13904)** (2025) · [Project](https://thanhkaist.github.io/ofqlpage/) · [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/14f75513f0f1ca01de1e826b52e6b840-Abstract-Conference.html)<br>
   Directly Q-optimizes an average-velocity policy that generates actions in one step during both offline training and inference.
 
+<a id="paper-arxiv-2603-05296"></a>
+
+- **[LPS — Latent Policy Steering through One-Step Flow Policies](https://arxiv.org/abs/2603.05296)** (2026) · [Project](https://jellyho.github.io/LPS/)<br>
+  Trains a latent actor with Q-gradients through a one-step MeanFlow decoder and fits the decoder by imitation.
+
 #### Multi-agent coordination
 
 <a id="paper-arxiv-2610-01882"></a>
@@ -659,6 +679,11 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 
 - **[piRL — $\pi_\texttt{RL}$: Online RL Fine-tuning for Flow-based Vision-Language-Action Models](https://arxiv.org/abs/2510.25889)** (2025) · [Code](https://github.com/RLinf/RLinf)<br>
   Fine-tunes flow VLAs with Flow-Noise learnable stochastic transitions or Flow-SDE updates over a two-layer denoising/environment MDP.
+
+<a id="paper-arxiv-2605-10821"></a>
+
+- **[UniSteer: Unified Noise Steering for Efficient Human-Guided VLA Adaptation](https://arxiv.org/abs/2605.10821)** (2026)<br>
+  Combines noise-space RL with inverted human corrections to adapt a noise actor around a frozen flow VLA.
 
 **See also:** [value-based methods](#value-based-methods) — including [FQL](#paper-arxiv-2502-02538) and [DIME](#paper-arxiv-2502-02316); [DPPO](#paper-arxiv-2409-00588) — action-policy gradients; [likelihood-surrogate methods](#likelihood-surrogates--elbo-based-optimization) — FPO / FMPG, Timestep Weighting, and DiPOD.
 
