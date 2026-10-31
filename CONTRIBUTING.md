@@ -4,7 +4,7 @@ Paper suggestions, corrections, code links, and clearer summaries are welcome. O
 
 ## Suggest a paper or resource
 
-For a paper, include its full title, arXiv ID, DOI, or official venue URL, and a short explanation of the contribution. Tell us what learns from reward: the generator, an action policy, a critic, or a separate controller. Note its domain, method family, and online/offline setting where known. An abstract is enough to suggest a candidate; method-level evidence supports a reading highlight.
+For a paper, include its full title, arXiv ID, DOI, or official venue URL, and a short explanation of the contribution. Tell us what learns from reward: the generator, an action policy, a critic, or a separate controller. Note its domain, method family, and online/offline setting where known. An abstract is enough to suggest a candidate.
 
 For code, prefer a repository linked by the authors or their project. For a survey, tutorial, or toolkit, explain who it helps and what it covers. Highlights reflect explanatory value or technical promise, independent of citation counts.
 
@@ -19,7 +19,7 @@ Keep the public list concise and readable:
 - Write one sentence explaining the algorithmic contribution rather than repeating the abstract.
 - Place model and system reports in Tech Reports, with a Subdomain badge and a concise description of their reward-training recipe. Place separately published learning algorithms by their main contribution and cross-link related reports.
 - Use one full entry per paper and anchor links for secondary categories.
-- Reserve ⭐ Fundamental for work that explains the field and 🚀 Frontier & Potential for especially promising current directions. These markers express editorial judgment, not ordering or citation rank.
+- Please omit highlight markers, since highlight decisions are reserved for the maintainers.
 - Keep benchmarks, reward models, inference steering, and distillation clearly distinguished from generator or policy training.
 
 Small corrections can be submitted directly as pull requests. For larger additions, opening an issue first helps avoid duplicate work.

@@ -6,7 +6,7 @@ A curated list of papers and tools for **reinforcement learning and reward optim
 
 We focus on **algorithms**: how rewards improve a generative policy, how different updates connect, and where to start implementing them. Each paper has a concise, one-sentence summary.
 
-*Last updated: Oct. 28, 2026*
+*Last updated: Oct. 31, 2026*
 
 ## Overview
 
@@ -426,6 +426,11 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 - **[Direct-Align / SRPO — Directly Aligning the Full Diffusion Trajectory with Fine-Grained Human Preference](https://arxiv.org/abs/2509.06942)** (2025) · [Code](https://github.com/Tencent-Hunyuan/SRPO)<br>
   Uses known injected noise for partial analytic image recovery and semantic-relative differentiable rewards to align image generation across timesteps.
 
+<a id="paper-arxiv-2506-12036"></a>
+
+- **[Noise PPO — A Minimalist Method for Fine-tuning Text-to-Image Diffusion Models](https://arxiv.org/abs/2506.12036)** (2025)<br>
+  Uses PPO to learn a prompt-conditioned initial-noise policy while keeping the diffusion generator frozen.
+
 <a id="paper-arxiv-2501-13918"></a>
 
 - **[VideoAlign / VideoReward — Improving Video Generation with Human Feedback](https://arxiv.org/abs/2501.13918)** (2025) · [Code](https://github.com/KlingAIResearch/VideoAlign) · [Project](https://gongyeliu.github.io/videoalign/)<br>
@@ -435,6 +440,11 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 
 - **[VADER / Video reward gradients — Video Diffusion Alignment via Reward Gradients](https://arxiv.org/abs/2407.08737)** (2024) · [Code](https://github.com/mihirp1998/VADER) · [Project](https://vader-vid.github.io/)<br>
   Extends differentiable reward alignment to video, including temporal objectives.
+
+<a id="paper-arxiv-2406-04312"></a>
+
+- **[ReNO: Enhancing One-step Text-to-Image Models through Reward-based Noise Optimization](https://arxiv.org/abs/2406.04312)** (2024) · [Code](https://github.com/ExplainableML/ReNO)<br>
+  Optimizes initial noise at inference time using differentiable preference rewards while keeping the one-step image generator frozen.
 
 <a id="paper-arxiv-2305-16381"></a>
 
@@ -613,6 +623,11 @@ Control-specific representations and vision-language-action (VLA) frameworks.
 
 - 🚀 **[MVP — Mean Flow Policy with Instantaneous Velocity Constraint for One-step Action Generation](https://arxiv.org/abs/2602.13810)** (2026) · [ICLR 2026 Oral](https://iclr.cc/virtual/2026/poster/10007588)<br>
   Combines an instantaneous-velocity-constrained MeanFlow policy with TD learning and Q-ranked action selection for one-step offline-to-online robot manipulation.
+
+<a id="paper-arxiv-2603-05296"></a>
+
+- **[LPS — Latent Policy Steering through One-Step Flow Policies](https://arxiv.org/abs/2603.05296)** (2026) · [Project](https://jellyho.github.io/LPS/)<br>
+  Backpropagates action-space Q-gradients through a one-step MeanFlow decoder to improve a latent policy for offline reinforcement learning.
 
 <a id="paper-arxiv-2601-20701"></a>
 
