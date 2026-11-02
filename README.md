@@ -45,6 +45,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the entry format and contribution gui
   - [Pathwise Reward Gradients](#pathwise-reward-gradients)
   - [Reward-Weighted & Matching-Based Policy Improvement](#reward-weighted--matching-based-policy-improvement)
   - [Other Optimization Methods](#other-optimization-methods)
+  - [Few-Step Generators](#few-step-generators)
   - [Inference & Steering](#inference--steering)
   - [Distillation](#distillation)
 - [Applications & Domain-Specific Methods](#applications--domain-specific-methods)
@@ -342,6 +343,29 @@ Broadly applicable algorithmic ideas organized by how they obtain a policy-impro
 
 **See also:** [Discrete Adjoint Matching](#paper-arxiv-2602-07132) — discrete CTMC adjoints; [DDPP](#paper-arxiv-2410-08134) — discrete posterior matching.
 
+<a id="few-step-generators"></a>
+
+### Few-Step Generators
+
+Reward optimization and on-policy distillation for generators that sample in one or a few deterministic jumps, such as MeanFlow, consistency models, and one-step flow policies.
+
+<a id="paper-arxiv-2607-00535"></a>
+
+- **[Flow-Map GRPO: Reinforcement Learning for Few-Step Flow-Map Generators via Anchored Stochastic Composition](https://arxiv.org/abs/2607.00535)** (2026) · [Project](https://zhiqili-cg.github.io/FlowMap-GRPO-Project/) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  The first complete RL framework for general flow-map generators: anchored stochastic composition enables GRPO training for both two-time (MeanFlow) and one-time (sCM) maps.
+
+<a id="paper-arxiv-2607-15273"></a>
+
+- **[MeanFlowNFT: Bringing Forward-Process RL to Average-Velocity Generators](https://arxiv.org/abs/2607.15273)** (2026) · [Code](https://github.com/Harahan/MeanFlowNFT) · [Project](https://harahan.github.io/meanflownft-project-page/) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  The first forward-process RL framework for average-velocity generators: adapts DiffusionNFT-style RL to MeanFlow through an induced instantaneous-velocity predictor.
+
+<a id="paper-arxiv-2609-37851"></a>
+
+- **[FlowMap-OPD: Rollout–Kernel Separation for On-Policy Distillation of Few-Step Flow-Map Generators](https://arxiv.org/abs/2609.37851)** (2026) · [Project](https://zhiqili-cg.github.io/Flowmap_OPD_project/) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
+  Studies on-policy distillation for few-step flow-map generators by separating student rollouts from teacher–student distribution matching.
+
+**See also:** [RAVEN](#paper-arxiv-2605-15190) and [KVPO](#paper-arxiv-2605-14278) — few-step autoregressive video generators; [MVP](#paper-arxiv-2602-13810), [LPS](#paper-arxiv-2603-05296), [One-Step OGPO](#paper-arxiv-2601-20701), and [OFQL](#paper-arxiv-2508-13904) — one-step control policies.
+
 <a id="adjacent-inference-control"></a>
 
 ### Inference & Steering
@@ -451,7 +475,21 @@ Image- and video-specific preference scorers, temporal objectives, and alignment
 - **[DPOK: Reinforcement Learning for Fine-tuning Text-to-Image Diffusion Models](https://arxiv.org/abs/2305.16381)** (2023) · [Code](https://github.com/google-research/google-research/tree/master/dpok) · ![Subdomain: Images & Video](https://img.shields.io/badge/Subdomain-Images%20%26%20Video-dce8f3.svg?style=flat&labelColor=e8ecef)<br>
   Combines image reward policy gradients with reference-distribution regularization.
 
-**See also:** [DDPO](#paper-arxiv-2305-13301) and [Flow-GRPO](#paper-arxiv-2505-05470) — denoising policy gradients; [Diffusion-DPO](#paper-arxiv-2311-12908) — pairwise preferences; [DRaFT](#paper-arxiv-2309-17400) — reward backpropagation; [DDPP](#paper-arxiv-2410-08134) — discrete image posterior matching; [forward matching methods](#reward-weighted--forward-matching).
+<a id="images--video-few-step-generators"></a>
+
+#### Few-step generators
+
+<a id="paper-arxiv-2605-15190"></a>
+
+- **[RAVEN: Real-time Autoregressive Video Extrapolation with Consistency-model GRPO](https://arxiv.org/abs/2605.15190)** (2026) · [Code](https://github.com/mvp-ai-lab/RAVEN)<br>
+  Introduces CM-GRPO for online RL of consistency-model-based autoregressive video generators.
+
+<a id="paper-arxiv-2605-14278"></a>
+
+- **[KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration](https://arxiv.org/abs/2605.14278)** (2026) · [Code](https://github.com/Richard-Zhang-AI/KVPO) · [Project](https://richard-zhang-ai.github.io/KVPO-Project/)<br>
+  Adds stochasticity through the historical KV cache instead of sampling noise, adapting GRPO to distilled autoregressive video generators with deterministic ODE sampling.
+
+**See also:** [DDPO](#paper-arxiv-2305-13301) and [Flow-GRPO](#paper-arxiv-2505-05470) — denoising policy gradients; [Diffusion-DPO](#paper-arxiv-2311-12908) — pairwise preferences; [DRaFT](#paper-arxiv-2309-17400) — reward backpropagation; [DDPP](#paper-arxiv-2410-08134) — discrete image posterior matching; [forward matching methods](#reward-weighted--forward-matching); [Flow-Map GRPO](#paper-arxiv-2607-00535), [MeanFlowNFT](#paper-arxiv-2607-15273), and [FlowMap-OPD](#paper-arxiv-2609-37851) — [few-step flow-map generators](#few-step-generators).
 
 ### World Models & Interactive Video
 
